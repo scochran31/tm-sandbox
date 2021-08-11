@@ -1,13 +1,14 @@
 import React from 'react'
+import { Box, Button } from "@chakra-ui/react"
 
 const TMItem = ({ item }) => {
     return (
-        <div className='card'>
-            <div className='card-inner'>
-                <div className='card-front'>
+        <Box mt='10' className='card'>
+            <Box className='card-inner'>
+                <Box className='card-front'>
                     <img src={item.images[2].url} alt='' />
-                </div>
-                <div className='card-back'>
+                </Box>
+                <Box className='card-back'>
                     <h1>{item.name}</h1>
                     <ul>
                         <li>
@@ -20,14 +21,14 @@ const TMItem = ({ item }) => {
                             <strong>Venue:</strong> {item._embedded.venues[0].name}
                         </li>
                         <li>
-                            <button>
+                            <Button colorScheme='teal'>
                                 <a href={item.url} target='_blank' rel="noreferrer noopener">Buy Tickets!</a>
-                            </button>
+                            </Button>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 
