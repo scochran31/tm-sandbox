@@ -20,7 +20,9 @@ const TMItem = ({ item }) => {
                             <strong>Venue:</strong> {item._embedded.venues[0].name}
                         </li>
                         <li>
-                            <strong>Buy Tickets:</strong> {item.url}
+                            <button>
+                                <a href={item.url} target='_blank' rel="noreferrer noopener">Buy Tickets!</a>
+                            </button>
                         </li>
                     </ul>
                 </div>

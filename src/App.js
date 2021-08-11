@@ -1,51 +1,52 @@
-// import React, { useState, useEffect } from 'react'
+// import React from 'react'
+// import { ChakraProvider } from "@chakra-ui/react"
 // import Header from './components/Header/Header'
-// import TMList from './components/Results/TMList'
-// import axios from 'axios'
-// import './App.css'
-// // import env from 'react-dotenv'
+// import Login from './pages/Login'
 
 // function App() {
-
-//   const [items, setItems] = useState([])
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     const fetchItems = async () => {
-//       setIsLoading(true)
-//       const result = await axios(
-//         `https://app.ticketmaster.com/discovery/v2/events.json?apikey=qIYFggG8v6DrcytUgRWaPDN71ORtsG1h&city=salt lake city&keyword=bees&size=4`
-//       )
-//       const ev = result.data._embedded.events
-//       console.log(ev)
-
-//       setItems(ev)
-//       setIsLoading(false)
-//     }
-//     fetchItems()
-//   }, [])
-
 //   return (
-//     <div className="container">
+//     <ChakraProvider>
 //       <Header />
-//       <TMList isLoading={isLoading} items={items} />
-//     </div>
-//   );
+//       <Login />
+//     </ChakraProvider>
+//   )
 // }
 
-// export default App;
-import React from 'react'
-import { ChakraProvider } from "@chakra-ui/react"
+// export default App
+
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header/Header'
-import Account from './components/Login/Account'
+import TMList from './components/Results/TMList'
+import axios from 'axios'
+import './App.css'
+// import env from 'react-dotenv'
 
 function App() {
+
+  const [items, setItems] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      setIsLoading(true)
+      const result = await axios(
+        `https://app.ticketmaster.com/discovery/v2/events.json?apikey=qIYFggG8v6DrcytUgRWaPDN71ORtsG1h&city=salt lake city&keyword=buble&size=4`
+      )
+      const ev = result.data._embedded.events
+      console.log(ev)
+
+      setItems(ev)
+      setIsLoading(false)
+    }
+    fetchItems()
+  }, [])
+
   return (
-    <ChakraProvider>
+    <div className="container">
       <Header />
-      <Account />
-    </ChakraProvider>
-  )
+      <TMList isLoading={isLoading} items={items} />
+    </div>
+  );
 }
 
-export default App
+export default App;
