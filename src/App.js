@@ -1,7 +1,12 @@
 import React from 'react'
 import { ChakraProvider } from "@chakra-ui/react"
+<<<<<<< HEAD
 import Header from './components/Header'
 //import Login from './pages/Login'
+=======
+import Header from './components/Header/index'
+import Login from './pages/Login'
+>>>>>>> 79667c1948d9d4af85f2ec038302d00e1777fa6d
 import Search from './pages/Search'
 
 function App() {
