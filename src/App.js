@@ -1,6 +1,6 @@
 import React from 'react'
 import { ChakraProvider } from "@chakra-ui/react"
-import Header from './components/Header/Header'
+import Header from './components/Header/index'
 import Login from './pages/Login'
 import Search from './pages/Search'
 
