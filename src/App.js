@@ -15,9 +15,10 @@
 // export default App
 
 import React, { useState, useEffect } from 'react'
-import Header from './components/Header/Header'
+import Header from './components/Header'
 import TMList from './components/Results/TMList'
 import axios from 'axios'
+import env from 'react-dotenv';
 import './App.css'
 // import env from 'react-dotenv'
 
@@ -30,7 +31,7 @@ function App() {
     const fetchItems = async () => {
       setIsLoading(true)
       const result = await axios(
-        `https://app.ticketmaster.com/discovery/v2/events.json?apikey=qIYFggG8v6DrcytUgRWaPDN71ORtsG1h&city=salt lake city&keyword=buble&size=4`
+        `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${env.TM_API}&city=salt lake city&keyword=buble&size=4`
       )
       const ev = result.data._embedded.events
       console.log(ev)
