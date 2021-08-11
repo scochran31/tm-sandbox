@@ -33,17 +33,6 @@ a {
   margin: 10px 0;
 }
 
-header {
-  height: 200px;
-}
-
-header img {
-  width: 200px;
-}
-
-header h1 {
-  color: black;
-}
 
 .center {
   display: flex;
@@ -55,17 +44,6 @@ header h1 {
   height: 100px;
   border: black;
   border-width: 2px;
-}
-
-input[type='text'] {
-  display: block;
-  padding: 10px;
-  font-size: 20px;
-  border: 0;
-  border-radius: 5px;
-  width: 60%;
-  margin: auto;
-  outline: none;
 }
 
 .cards {

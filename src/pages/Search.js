@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import TMList from '../components/Results/TMList'
 import axios from 'axios'
+import env from 'react-dotenv'
+import '../App.css'
 
 import {
     // Flex,
@@ -13,8 +15,8 @@ import {
 } from "@chakra-ui/react"
 
 function Search() {
-    const [city, setCity] = useState('');
-    const [event, setEvent] = useState('');
+    const [formState, setFormState] = useState({ city: '', event: '' });
+    const { city, event } = formState;
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -22,11 +24,15 @@ function Search() {
         e.preventDefault();
         setIsLoading(true);
         const result = await axios(
-            `https://app.ticketmaster.com/discovery/v2/events.json?apikey=qIYFggG8v6DrcytUgRWaPDN71ORtsG1h&city=salt lake city&keyword=bees&size=4`
+            `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${env.TM_API}&city=${city}keyword=${event}&size=4`
         );
-        const ev = result.data._embedded.events;
-        setItems(ev);
+        console.log(result);
+        // setItems(ev);
         setIsLoading(false);
+    }
+
+    const handleChange = (e) => {
+        setFormState({ ...formState, [e.target.name]: e.target.value });
     }
 
     return (
@@ -40,10 +46,9 @@ function Search() {
                             </FormLabel>
                             <Input
                                 type='text'
-                                id='city'
+                                name='city'
                                 value={city}
-                                onChange={({ target }) =>
-                                    setCity(target.value)} />
+                                onChange={handleChange} />
                         </FormControl>
                     </Box>
 
@@ -54,10 +59,9 @@ function Search() {
                             </FormLabel>
                             <Input
                                 type='text'
-                                id='event'
+                                name='event'
                                 value={event}
-                                onChange={({ target }) =>
-                                    setEvent(target.value)}
+                                onChange={handleChange}
                             />
                         </FormControl>
                     </Box>
