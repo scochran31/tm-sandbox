@@ -28,6 +28,14 @@ export default App
 //   const [items, setItems] = useState([])
 //   const [isLoading, setIsLoading] = useState(true);
 
+// useEffect(() => {
+//   const fetchItems = async () => {
+//     setIsLoading(true)
+//     const result = await axios(
+//       `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${env.TM_API}&city=salt lake city&keyword=buble&size=4`
+//     )
+//     const ev = result.data._embedded.events
+//     console.log(ev)
 
 //   useEffect(() => {
 //     const fetchItems = async () => {
